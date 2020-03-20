@@ -1,19 +1,60 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view />
+    <router-view></router-view>
+    <tab-bar>
+      <tab-bar-item path="/home">
+        <img slot="item-icon" src="./assets/img/iconfont/home.png" alt="" />
+        <img
+          slot="item-icon-active"
+          src="./assets/img/iconfont/home_active.png"
+          alt=""
+        />
+        <div slot="item-text">首页</div>
+      </tab-bar-item>
+      <tab-bar-item path="/category">
+        <img slot="item-icon" src="./assets/img/iconfont/category.png" alt="" />
+        <img
+          slot="item-icon-active"
+          src="./assets/img/iconfont/category_active.png"
+          alt=""
+        />
+        <div slot="item-text">分类</div>
+      </tab-bar-item>
+      <tab-bar-item path="/shopcart">
+        <img slot="item-icon" src="./assets/img/iconfont/shopcart.png" alt="" />
+        <img
+          slot="item-icon-active"
+          src="./assets/img/iconfont/shopcart_active.png"
+          alt=""
+        />
+        <div slot="item-text">购物车</div>
+      </tab-bar-item>
+      <tab-bar-item path="/profile">
+        <img slot="item-icon" src="./assets/img/iconfont/profile.png" alt="" />
+        <img
+          slot="item-icon-active"
+          src="./assets/img/iconfont/profile_active.png"
+          alt=""
+        />
+        <div slot="item-text">我的</div>
+      </tab-bar-item>
+    </tab-bar>
   </div>
 </template>
-
-<style lang="stylus">
-#app
-  font-family Avenir, Helvetica, Arial, sans-serif
-  -webkit-font-smoothing antialiased
-  -moz-osx-font-smoothing grayscale
-  text-align center
-  color #2c3e50
-  margin-top 60px
+<script>
+import TabBar from "./components/tabbar/tabbar";
+import TabBarItem from "./components/tabbar/tabbarItem";
+export default {
+  name: "App",
+  components: {
+    TabBar,
+    TabBarItem
+  }
+};
+</script>
+<style>
+@import "./assets/css/base.css";
+.active {
+  color: red;
+}
 </style>
